@@ -58,9 +58,10 @@ button:disabled {
     background-color: #fff;
     border: 1px solid #dee2e6;
     border-radius: 5px;
-    height: 100px;
-    width:100px;
+    height: 80px;
+    width: 80px;
 }
+
 .img-thumbnail div {
   background-color: rgb(100, 100, 100);
   background-size: cover;

@@ -11,12 +11,22 @@ const Root = () => {
 
   const [filesInFolder, setFilesInFolder] = useState<string[]>([]);
   const [status, setStatus] = useState<StatusRole>('stop');
-  // const [timer, setTimer] = useState<number>(30000);
+  const [defaultTimer, setDefaultTimer] = useState<number>(30000);
   const [filePosition, setFilePosition] = useState<number>(0);
+  let timer;
+
+  const waitTimer = () => {
+    timer = setTimeout(function () {
+      nextImage();
+      // waitTimer();
+    }, defaultTimer);
+  }
+
+  // function stopTimer() {
+  //   clearTimeout(myTimeout);
+  // }
 
   const nextImage = () => {
-    console.log('filesInFolder.length')
-    console.log(filesInFolder.length)
     if (filesInFolder.length > (filePosition + 1)) {
       setFilePosition(filePosition + 1)
     } else {
@@ -41,6 +51,9 @@ const Root = () => {
           setFilesInFolder(files)
         }}
         onChangeStatus={(newStatus: StatusRole) => {
+          // if (newStatus === 'play') {
+          //   waitTimer()
+          // }
           setStatus(newStatus)
         }}
         nextImage={nextImage} />

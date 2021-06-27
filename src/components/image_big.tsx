@@ -11,6 +11,7 @@ const ImageBig: React.FC<ImageBigProps> = ({
 }) => {
   return (
     <div className="image-container-big">
+      {filePosition}
       {
         files.length > filePosition &&
         <img className="img-big" src={files[filePosition]} />
