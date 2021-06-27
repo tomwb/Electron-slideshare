@@ -12,9 +12,7 @@ const ImageList: React.FC<ImageListProps> = ({
     <div className="image-list">
       {files.map((file, index) => {
         return (
-          <div className="img-thumbnail" key={index}>
-            <div style={{ backgroundImage: `url('file://${file}')` }}></div>
-          </div>
+          <img className="img-thumbnail" key={index} src={file} />
         )
       })}
       {

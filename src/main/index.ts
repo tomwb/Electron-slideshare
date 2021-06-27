@@ -13,7 +13,7 @@ let mainWindow: BrowserWindow | null
 const createMainWindow = () => {
   const window = new BrowserWindow({
     webPreferences: { nodeIntegration: true },
-    icon: __dirname + '/favicon.ico',
+    icon: path.join(__dirname, "build", 'favicon.ico'),
     title: 'Slideshare'
   })
 
