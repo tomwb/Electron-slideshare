@@ -25,16 +25,20 @@ button {
   margin: 5px;
   border-radius: 5px;
   cursor: pointer;
+  outline: none;
 }
 
 
-button.btn-play {
+button.btn-green {
   background-color: #4CAF50;
-  margin-left: 30px;
 }
 
-button.btn-pause {
-  background-color: #4CAF50;
+button.btn-stop {
+  background-color: #b13e36;
+}
+
+button:focus {
+  outline: none;
 }
 
 button:disabled {
@@ -87,8 +91,71 @@ button:disabled {
 }
 
 header {
-  background: #2c2c2c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #5a5a5a;
   padding: 10px;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
   margin-bottom: 10px;
+}
+
+header .timer {
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  min-width: 70px;
+}
+
+
+/* Reset Select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #cdcdcd;
+  background-image: none;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+.select {
+  position: relative;
+  display: flex;
+  width: 200px;
+  height: 30px;
+  line-height: 30px;
+  background: #cdcdcd;
+  overflow: hidden;
+  border-radius: 5px;
+}
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #858585;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+/* Transition */
+.select:hover::after {
+  color: #305791;
 }

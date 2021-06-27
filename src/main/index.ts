@@ -11,7 +11,11 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 let mainWindow: BrowserWindow | null
 
 const createMainWindow = () => {
-  const window = new BrowserWindow({ webPreferences: { nodeIntegration: true }, icon: __dirname + '/favicon.ico' })
+  const window = new BrowserWindow({
+    webPreferences: { nodeIntegration: true },
+    icon: __dirname + '/favicon.ico',
+    title: 'Slideshare'
+  })
 
   if (isDevelopment) {
     window.webContents.openDevTools()
@@ -37,6 +41,10 @@ const createMainWindow = () => {
       window.focus()
     })
   })
+
+  window.on('page-title-updated', function (e) {
+    e.preventDefault()
+  });
 
   return window
 }
@@ -77,15 +85,18 @@ app.on('ready', () => {
           type: 'separator'
         },
         {
+          label: 'minimizar',
           role: 'minimize'
         },
         {
+          label: 'Tela cheia',
           role: 'togglefullscreen'
         },
         {
           type: 'separator'
         },
         {
+          label: 'Fechar',
           role: 'close'
         }
       ]
